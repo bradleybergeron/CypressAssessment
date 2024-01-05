@@ -8,6 +8,7 @@ describe('Cypress Assessment', () => {
         cy.get('h2')
             .contains('Loved by OSS, trusted by Enterprise')
             .should('exist')
+            .and('be.visible')
 
         //
         // Verify "5M+" label is present
@@ -15,6 +16,7 @@ describe('Cypress Assessment', () => {
         cy.get('.grow')
             .contains('5M+')
             .should('exist')
+            .and('be.visible')
 
         //
         // Verify "Weekly downloads" label is present
@@ -22,6 +24,7 @@ describe('Cypress Assessment', () => {
         cy.get('.grow')
             .contains('Weekly downloads')
             .should('exist')
+            .and('be.visible')
     })
 
     it('Verify Company -> About Cypress Link', () => {
@@ -35,6 +38,7 @@ describe('Cypress Assessment', () => {
         cy.get('span')
             .contains('About Cypress ')
             .should('exist')
+            .and('be.visible')
             .click()
 
         //
@@ -43,6 +47,7 @@ describe('Cypress Assessment', () => {
         cy.get('h1')
             .contains('About us')
             .should('exist')
+            .and('be.visible')
         cy.url()
             .should('eq', 'https://www.cypress.io/about-us')
         cy.url()
@@ -59,18 +64,21 @@ describe('Cypress Assessment', () => {
         //
         // Click "npm install cypress" button to display popup
         //
+        // TODO: Need to further investigate this. The click is not always bringing up the popup
+        //
         cy.get("astro-island[uid=1XAX3B]")
             .find('button')
             .first()
             .should('exist')
+            .and('be.visible')
             .click()
 
         //
         // Click button to copy text to clipboard on popup
         //
         cy.get('button[data-cy=modal-install-copy]')
-            //.contains('npm install cypress')
             .should('exist')
+            .and('be.visible')
             .click()
 
         //
@@ -87,6 +95,7 @@ describe('Cypress Assessment', () => {
         cy.get('a')
             .contains('Product')
             .should('exist')
+            .and('be.visible')
             .focus()
 
         //
@@ -113,6 +122,7 @@ describe('Cypress Assessment', () => {
         cy.get('span')
             .contains('Visual Reviews')
             .should('exist')
+            .and('be.visible')
             .click()
 
         //
@@ -121,6 +131,7 @@ describe('Cypress Assessment', () => {
         cy.get('h2')
             .contains('Review and debug failures visually')
             .should('exist')
+            .and('be.visible')
     })
 
     it.skip('Verify Test Analytics Green Circle', () => {
@@ -134,6 +145,7 @@ describe('Cypress Assessment', () => {
         cy.get('span')
             .contains('Smart Orchestration')
             .should('exist')
+            .and('be.visible')
             .click()
 
         //
@@ -142,6 +154,7 @@ describe('Cypress Assessment', () => {
         cy.get('a')
             .contains('Test Analytics')
             .should('exist')
+            .and('be.visible')
             .click()
     })
 })
